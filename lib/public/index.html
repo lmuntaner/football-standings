@@ -1,15 +1,15 @@
 <html>
 <head>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<script src='/javascripts/jquery-1.11.2.min.js' type='text/javascript'></script>
+	<script src="/javascripts/bootstrap.min.js" type='text/javascript'></script>
 	<script src='/javascripts/teams.js' type='text/javascript'></script>
 	
 	<script type="text/javascript" charset="utf-8">
-	// var WebSocket = require('ws')
-	//   , ws = new WebSocket('ws://localhost:8080');
+		var host = window.document.location.host.replace(/:.*/, '');
+	  var ws = new WebSocket('ws://' + host + ':8080/games');
 		$(function () {
-			var teams = new App.Teams();
+			var teams = new App.Teams(ws);
 		});
 	</script>
 </head>
